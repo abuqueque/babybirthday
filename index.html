@@ -587,9 +587,17 @@
             document.getElementById('letterModal').style.display = 'block';
             currentLetterIndex = (currentLetterIndex + 1) % letters.length;
         });
-        
+
+        const modal = document.getElementById('letterModal');
+
         document.querySelector('.modal .close').addEventListener('click', () => {
             document.getElementById('letterModal').style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
         });
         
         function initializePlayer() {
